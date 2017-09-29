@@ -1,44 +1,94 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>
+<html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>My AngularJS App</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../node_modules/html5-boilerplate/dist/css/normalize.css">
-  <link rel="stylesheet" href="../node_modules/html5-boilerplate/dist/css/main.css">
-  <link rel="stylesheet" href="app.css">
-  <script src="../node_modules/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Jira Dashboard</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--  <link rel="stylesheet" href="../node_modules/html5-boilerplate/dist/css/normalize.css">
+      <link rel="stylesheet" href="../node_modules/html5-boilerplate/dist/css/main.css">-->
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../node_modules/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="../node_modules/angular-route/angular-route.js"></script>
+    <script src="view1/highcharts.js"></script>
+    <script src="app.js"></script>
+    <script src="view1/view1.js"></script>
+    <script src="view2/view2.js"></script>
+    <script src="components/version/version.js"></script>
+    <script src="components/version/version-directive.js"></script>
+    <script src="components/version/interpolate-filter.js"></script>
 </head>
 <body>
-  <ul class="menu">
-    <li><a href="#!/view1">view1</a></li>
-    <li><a href="#!/view2">view2</a></li>
-  </ul>
+<!-- <ul class="menu">
+   <li><a href="#!/view1">Platform</a></li>
+   <li><a href="#!/view2">Release</a></li>
+   <li><a href="#!/view2">Iteration</a></li>
+ </ul>-->
 
-  <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-  <![endif]-->
+<div class="container-fluid">
+    <div class="row content">
+        <div class="col-sm-1 sidenav">
+            <h4>Jira Dashboard</h4>
+            <select>
+                <option value="volvo">Salesforce</option>
+                <option value="saab">MyAccount</option>
+                <option value="mercedes">Marshall</option>
+                <option value="audi">Yellow</option>
+                <option value="audi">White</option>
+                <option value="audi">EMS</option>
+                <option value="audi">Lego</option>
+            </select>
+            <select>
+                <option value="volvo">Team 1</option>
+                <option value="saab">Team 2</option>
+                <option value="mercedes">Team 3</option>
+                <option value="audi">Team 4</option>
+            </select><br/><br/>
+            <ul class="nav nav-pills nav-stacked">
+                <li class="active"><a href="#!/view1">{{activeTab}} Platform</a></li>
+                <li><a href="#!/view2">Release</a></li>
+                <li><a href="#!/view3">Iteration</a></li>
+            </ul>
+            <br>
+            <!--<div class="input-group">
+              <input type="text" class="form-control" placeholder="Search Blog..">
+             <span class="input-group-btn">
+               <button class="btn btn-default" type="button">
+                 <span class="glyphicon glyphicon-search"></span>
+               </button>
+             </span>
+            </div>-->
+        </div>
 
-  <div ng-view></div>
+        <div class="col-sm-11">
+            <div ng-view></div>
+        </div>
+    </div>
+</div>
 
-  <div>Angular seed app: v<span app-version></span></div>
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
 
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
-  -->
-  <script src="../node_modules/angular/angular.js"></script>
-  <script src="../node_modules/angular-route/angular-route.js"></script>
-  <script src="view1/highcharts.js"></script>
-  <script src="app.js"></script>
-  <script src="view1/view1.js"></script>
-  <script src="view2/view2.js"></script>
-  <script src="components/version/version.js"></script>
-  <script src="components/version/version-directive.js"></script>
-  <script src="components/version/interpolate-filter.js"></script>
+
+<div>Angular seed app: v<span app-version></span></div>
+
+<!-- In production use:
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+-->
+
 </body>
 </html>
